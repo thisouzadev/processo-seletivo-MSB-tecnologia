@@ -5,9 +5,9 @@
     },
     "extends": [
         "standard",
+        "eslint:recommended",
         "prettier",
-        "prettier/prettier",
-        "eslint:recommended"
+        "prettier/prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
