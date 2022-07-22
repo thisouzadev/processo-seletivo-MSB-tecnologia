@@ -9,6 +9,15 @@ class RegisterService {
     });
     return response;
   }
+
+  async getAll() {
+    const response = await axios({
+      method: "get",
+      url: "http://localhost:3000/user",
+      data: {}
+    });
+    return response;
+  }
 }
 
 export default RegisterService;
