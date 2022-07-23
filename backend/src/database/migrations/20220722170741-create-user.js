@@ -5,9 +5,9 @@ module.exports = {
     await queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        allowNull: false,
+        primaryKey: true
       },
       nome: {
         type: Sequelize.STRING,
@@ -26,18 +26,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      upload: {
+      file: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       published: {
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW
       },
-      // updated: {
-      //   type: Sequelize.DATE,
-      //   allowNull: false,
-      // },
+      updated: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
     });
   },
 

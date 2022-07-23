@@ -7,7 +7,7 @@ module.exports = {
           email: '10/10/1991',
           telefone: '979447878',
           mensagem: 'me liga',
-          // upload: '',
+          upload: '',
         },
         ], {timestamps: false});
   },

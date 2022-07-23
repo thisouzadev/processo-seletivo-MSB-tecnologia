@@ -4,6 +4,6 @@ const router = express.Router();
 const upload = require('../middlewares/multer');
 
 
-router.post('/register', userController.create);
+router.post('/register', upload, userController.create);
 router.get('/user', userController.getAllUsers);
 module.exports = router;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "react-phone-number-input/style.css";
-import RegisterService from "../../services/register.services";
 import Error from "../../components/Error";
 import "./register.css";
 import AllRegister from "../allRegister/AllRegister";
+import axios from "axios";
+
 function Register () {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -11,29 +12,29 @@ function Register () {
   const [telefone, setTelefone] = useState("");
   const [validTelefone, setValidTelefone] = useState(false);
   const [mensagem, setMensagem] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [validFile, setValidFile] = useState(false); // validar arquivo
   const [error, setError] = useState(false);
   const [messageError, setMessageError] = useState("");
 
-  const createRegister = () => {
-    new RegisterService()
-      .create(nome, email, telefone, mensagem)
-      .catch((err) => {
-        // setError(true);
-        setMessageError(err.message);
-        console.log("ERRO -> ", err);
-      });
-  };
-
-  const handleButton = (event) => {
+  console.log(nome, email, telefone, mensagem, selectedFile);
+  const handleButton = async (event) => {
     event.preventDefault();
-    createRegister();
-    setError(false);
+
+    const data = new FormData();
+    data.append("nome", nome);
+    data.append("email", email);
+    data.append("telefone", telefone);
+    data.append("mensagem", mensagem);
+    data.append("file", selectedFile);
+    await axios.post("http://localhost:3000/register", data);
   };
 
   const getValidateEmail = ({ target: { value } }) => {
     const validaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (validaEmail.test(value)) {
       setValidEmail(true);
+      setMessageError("entre com um email valido");
     } else {
       setValidEmail(false);
     }
@@ -44,37 +45,55 @@ function Register () {
     const validaTelefone = /^(?:(?:\+|00)?(55)\s?)?(?:(?:\(?[1-9][0-9]\)?)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/;
     if (validaTelefone.test(value)) {
       setValidTelefone(true);
+      setMessageError("entre com um telefone valido");
     } else {
       setValidTelefone(false);
     }
     setTelefone(value);
   };
 
+  const getValidateFile = (event) => {
+    const validaFile = /^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.txt|.TXT|.odt|.ODT|.docx|.DOCX|.doc|.DOC|.pdf|.PDF)$/;
+    if (validaFile.test(event.target.value)) {
+      setValidFile(true);
+      setMessageError("entre com um arquivo valido");
+    } else {
+      setValidFile(false);
+    }
+    setSelectedFile(event.target.files[0]);
+  };
+
   const submit = () => {
-    if (validEmail && validTelefone) return false;
+    if (validEmail && validTelefone && validFile) return false;
     return true;
   };
 
   return (
     <>
-      <form className='register' method="post" action="" >
+      <form onSubmit={handleButton} className='register' method="post" encType='multipart/form-data'>
         <label>
         Nome:
-          <input type="text" onChange={ (event) => setNome(event.target.value)} name="Nome" />
+          <input type="text" value={nome} onChange={ (event) => setNome(event.target.value)} name="Nome" />
         </label>
         <label>
         email:
-          <input type="email" onChange={ (event) => getValidateEmail(event)} name="email" />
+          <input type="email" value={email} onChange={ (event) => getValidateEmail(event)} name="email" />
         </label>
         <label>
       telefone:
-          <input type="text" onChange={ (event) => getValidateTelefone(event)} name="telefone" />
+          <input type="text" value={telefone} onChange={ (event) => getValidateTelefone(event)} name="telefone" />
         </label>
         <label>
         mensagem:
-          <input type="text" onChange={ (event) => setMensagem(event.target.value)} name="mensagem" />
+          <input type="text" value={mensagem} onChange={ (event) => setMensagem(event.target.value)} name="mensagem" />
         </label>
-        <input type="submit" disabled={submit()} onClick={handleButton} value="criar" />
+        <label>
+        arquivo:
+          <input type="file" onChange={ (event) => getValidateFile(event)}/>
+        </label>
+        <input type="submit"
+          disabled={submit()}
+          value="criar" />
         {error
           ? (
             <Error

@@ -3,9 +3,13 @@ const {DataTypes} = require('sequelize');
 const Attributes = {
   id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     autoIncrement: true,
-    primaryKey: true,
+    allowNull: false,
+    primaryKey: true
+  },
+  nome: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
   nome: {
     type: DataTypes.STRING,
@@ -23,19 +27,22 @@ const Attributes = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  // upload: {
-  //   type: DataTypes.STRING,
-  //   allowNull: false,
-  //   defaultValue: '',
-  // },
+  file: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    // defaultValue: '',
+  },
 };
 
 module.exports = (sequelize) => {
   const User = sequelize.define('users', Attributes, {
+    // underscored: true,
     tableName: 'users',
     timestamps: true,
     createdAt: 'published',
     updatedAt: 'updated',
+    // freezeTableName: true,
+    // timestamps: false
   });
 
   return User;
