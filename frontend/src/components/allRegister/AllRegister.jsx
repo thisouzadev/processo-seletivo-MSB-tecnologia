@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import RegisterService from "../../services/register.services";
-
+import { Table } from "react-bootstrap";
 function AllRegister() {
   const [registers, setRegisters] = useState([]); // array de registros
 
@@ -22,11 +21,11 @@ function AllRegister() {
   }
   if (registers.length > 0) {
     return (
-      <div>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             {Object.keys(registers[0]).map((title, index) => (
-              <th key={ index }>
+              <th scope="col" key={ index }>
                 {title}
               </th>
             ))}
@@ -35,9 +34,9 @@ function AllRegister() {
         <tbody>
           {
             registers.map((register, index) => (
-              <tr key={ index }>
+              <tr scope="row" key={ index }>
                 {Object.values(register).map((value, index) => (
-                  <td key={ index }>
+                  <td key={index}>
                     {value}
                   </td>
                 ))}
@@ -45,7 +44,7 @@ function AllRegister() {
             ))
           }
         </tbody>
-      </div>
+      </Table>
     );
   }
 }
