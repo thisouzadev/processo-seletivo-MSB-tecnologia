@@ -60,8 +60,9 @@ app.listen(listenPort, () => {
   <figcaption>5. configurei os env no backend<figcaption>
   <img src="./img/env.png" alt="Minha Figura">
 </figure>
-6. criar o Procfile e colocar o comando pro heroku dar o start no node.
-7. voltei ao heroku cliquei Reveal Config Vars e inseri as variaveis de ambientes.
+    
+6. Criar o Procfile e colocar o comando pro heroku dar o start no node.
+7. Voltei ao heroku cliquei Reveal Config Vars e inseri as variaveis de ambientes.
 8. Cliquei add buildpack e coloquei a opção nodejs.
 
 <figure>
