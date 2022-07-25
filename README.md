@@ -60,11 +60,11 @@ app.listen(listenPort, () => {
   <figcaption>5. configurei os env no backend<figcaption>
   <img src="./img/env.png" alt="Minha Figura">
 </figure>
-
-6. voltei ao heroku cliquei Reveal Config Vars e inseri as variaveis de ambientes.
-7. Cliquei add buildpack e coloquei a opção nodejs.
+6. criar o Procfile e colocar o comando pro heroku dar o start no node.
+7. voltei ao heroku cliquei Reveal Config Vars e inseri as variaveis de ambientes.
+8. Cliquei add buildpack e coloquei a opção nodejs.
 
 <figure>
-  <figcaption>8. Cliquei em deploy fiz a coneção com meu github e cliquei na opção deploy Branch.<figcaption>
+  <figcaption>9. Cliquei em deploy fiz a coneção com meu github e cliquei na opção deploy Branch.<figcaption>
   <img src="./img/deploybranch.png" alt="Minha Figura">
 </figure>
