@@ -1,5 +1,10 @@
 # processo-seletivo-MSB-tecnologia
 
+## Projetos
+[backend-msb-tecnologia](https://github.com/thisouzadev/processo-seletivo-MSB-tecnologia-backend)
+
+[frontend-msb-tecnologia](https://github.com/thisouzadev/processo-seletivo-MSB-tecnologia-frontend)
+
 ## Navegar no README
 
 - [Sobre o Deploy no FrontEnd](#sobre-o-deploy-no-frontend)
