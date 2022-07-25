@@ -74,4 +74,5 @@ app.listen(listenPort, () => {
   <img src="./img/deploybranch.png" alt="Minha Figura">
 </figure>
     
-   material usado pra consulta [youtube](https://www.youtube.com/watch?v=ZZp0VIjTsbM&ab_channel=Raddy)
+   material usado pra consulta [youtube](https://www.youtube.com/watch?v=ZZp0VIjTsbM&ab_channel=Raddy) pro backend
+   material usado pra consulta [youtube](https://www.youtube.com/watch?v=S0_WcPP83z8&ab_channel=AlgaWorks) pro frontend 
