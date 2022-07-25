@@ -74,4 +74,4 @@ app.listen(listenPort, () => {
   <img src="./img/deploybranch.png" alt="Minha Figura">
 </figure>
     
-    10. material usado pra consulta [youtube]([https://github.com/thisouzadev/processo-seletivo-MSB-tecnologia-backend](https://www.youtube.com/watch?v=ZZp0VIjTsbM&ab_channel=Raddy))
+    10. material usado pra consulta [youtube](https://www.youtube.com/watch?v=ZZp0VIjTsbM&ab_channel=Raddy)
