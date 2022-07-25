@@ -1,7 +1,9 @@
 # processo-seletivo-MSB-tecnologia
 
-- [Sobre o Deploy no FrontEnd](#sobre-o-projeto-frontend)
-- [Sobre o Deploy no BackEnd](#sobre-o-projeto-backend)
+## Navegar no README
+
+- [Sobre o Deploy no FrontEnd](#sobre-o-deploy-no-frontend)
+- [Sobre o Deploy no BackEnd](#sobre-o-deploy-no-backend)
 
 ## Começando
 
@@ -11,7 +13,7 @@
 2. [GitHub](github.com)
 3. [ClearDB MySQL](https://www.cleardb.com/mysql/)
 
-### Sobre o Deploy no FrontEnd
+## Sobre o Deploy no FrontEnd
 
 1. instalei o [express](https://expressjs.com/pt-br/)
 2. troquei npm start no package.json para npm run dev
